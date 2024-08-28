@@ -28,12 +28,12 @@ export function Header() {
           <div className={styles.contentLogo}>
             <Link href={"/"}>Dev Motors</Link>
           </div>
+          <nav className={styles.nav}>
+            <Link href={"/"}>HOME</Link>
+            <Link href={"/#servicos"}>SERVIÇOS</Link>
+            <Link href={"/#contatos"}>CONTATOS</Link>
+          </nav>
         </div>
-        <nav className={styles.nav}>
-          <Link href={"/"}>HOME</Link>
-          <Link href={"/#servicos"}>SERVIÇOS</Link>
-          <Link href={"/#contatos"}>CONTATOS</Link>
-        </nav>
       </div>
     </header>
   );

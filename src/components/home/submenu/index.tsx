@@ -33,13 +33,8 @@ export function Submenu() {
 
       <ul className={`${styles.ul} ${isOpen ? styles.open : ""}`}>
         {isOpen &&
-          <button>
-            <X
-              onClick={toggleMenu}
-              size={54}
-              color="#121212"
-              className={styles.closeButton}
-            />
+          <button onClick={toggleMenu} className={styles.closeButton}>
+            <X size={54} color="#121212" />
           </button>}
 
         <li>

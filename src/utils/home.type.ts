@@ -13,7 +13,7 @@ export interface HomeProps {
       };
       about: {
         description: string;
-        banner: {
+        bannrt: {
           url: string;
         };
       };

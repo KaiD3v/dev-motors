@@ -23,7 +23,7 @@ export default async function Home() {
         icon={<Phone size={24} color="#FFF" />}
       />
 
-      <Container>
+      <Container> 
         <Services object={object}/>
       </Container>
     </main>

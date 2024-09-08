@@ -4,7 +4,8 @@ import styles from "./styles.module.scss";
 
 export function Services({ object }: HomeProps) {
   return (
-    <section className={styles.containerAbout}>
+    <>
+      <section className={styles.containerAbout}>
       <article className={styles.innerAbout}>
         <h1 className={styles.title}>Sobre</h1>
         <p>
@@ -22,5 +23,25 @@ export function Services({ object }: HomeProps) {
         />
       </div>
     </section>
+
+    <h2 className={styles.servicesTitle}>Conheça nossos serviços</h2>
+
+    <section className={styles.services}>
+      {object.metadata.services.map((service, index) => (
+        <article key={index} className={styles.service}>
+          <div className={styles.innerService}>
+          <Image
+          className={styles.imageService}
+          alt="Imagem do serviço"
+          quality={100}
+          fill={true}
+          src={object.metadata.about.bannrt.url}
+        />
+          </div>
+          <p>{service.description}</p>
+        </article>
+      )) }
+    </section>
+    </>
   );
 }

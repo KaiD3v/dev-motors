@@ -49,6 +49,19 @@ export function Footer({ object }: HomeProps) {
           </div>
         </div>
       </section>
+
+      <a
+        href={object.metadata.cta_button.url}
+        target="blank"
+        className={styles.link}
+      >
+        <Phone />
+        {object.metadata.cta_button.title}
+      </a>
+
+      <p className={styles.copyText}>
+        Todos direitos reservados {object.title} @{`${new Date().getFullYear()}`}
+      </p>
     </footer>
   );
 }

@@ -5,8 +5,13 @@ import styles from "./styles.module.scss";
 
 import { X, Menu } from "lucide-react";
 import { useEffect, useState } from "react";
+import { MenuProps } from "../../../utils/menu.type";
 
-export function Submenu() {
+interface SubMenuProp {
+  menu: MenuProps;
+}
+
+export function Submenu({ menu }: SubMenuProp) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleMenu() {
@@ -32,10 +37,11 @@ export function Submenu() {
       </div>
 
       <ul className={`${styles.ul} ${isOpen ? styles.open : ""}`}>
-        {isOpen &&
+        {isOpen && (
           <button onClick={toggleMenu} className={styles.closeButton}>
             <X size={54} color="#121212" />
-          </button>}
+          </button>
+        )}
 
         <li>
           <Link href={"/post/pagina-1"}>Página 1</Link>

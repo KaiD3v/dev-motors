@@ -58,10 +58,6 @@ export function Footer({ object }: HomeProps) {
         <Phone />
         {object.metadata.cta_button.title}
       </a>
-
-      <p className={styles.copyText}>
-        Todos direitos reservados {object.title} @{`${new Date().getFullYear()}`}
-      </p>
     </footer>
   );
 }

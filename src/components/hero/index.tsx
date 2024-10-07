@@ -15,14 +15,12 @@ export function Hero({
   buttonUrl,
   buttonTitle,
   bannerUrl,
-  icon
+  icon,
 }: HeroProps) {
   return (
     <main className={styles.main}>
       <div className={styles.containerHero}>
-        <h1 className={styles.title}>
-          {heading}
-        </h1>
+        <h1 className={styles.title}>{heading}</h1>
         <a target="_blank" href={buttonUrl} className={styles.link}>
           {icon}
           {buttonTitle}
@@ -35,6 +33,7 @@ export function Hero({
           src={bannerUrl}
           priority={true}
           fill={true}
+          sizes="(max-widith: 480px) 100vw, (max-width:1024px) 75vw, 50vw"
         />
       </div>
     </main>

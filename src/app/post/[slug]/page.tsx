@@ -5,6 +5,47 @@ import styles from "./styles.module.scss";
 import { Hero } from "../../../components/hero";
 import { Container } from "../../../components/container";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  try {
+    const { objects }: PostProps = await getItemBySlug(slug).catch(() => {
+      return {
+        title: "Devmotors - Sua oficina especializada!",
+        description: "Oficina de carros em Xique-Xique Bahia!",
+      };
+    });
+
+    return {
+      title: `Devmotors - ${objects[0].title}`,
+      description: `${objects[0].metadata.description.text}`,
+      keywords: ["devmotors", "troca de óleo", "manutenção preventiva", "troca de óleo em jundiaí"],
+      openGraph: {
+        title: `DevMototrs - ${objects[0].title}`,
+        images: [`${objects[0].metadata.banner.url}`],
+      },
+      robots: {
+        index: true,
+        follow: true,
+        nocache: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          noimageindex: true,
+        },
+      },
+    };
+  } catch (error) {
+    return {
+      title: "Devmotors - Sua oficina especializada!",
+      description: "Oficina de carros em Xique-Xique Bahia!",
+    };
+  }
+}
 
 export default async function Page({
   params: { slug },
